@@ -1,5 +1,5 @@
-# Create the User Collection
-class CreateUserCollection < ActiveRecord::Migration
+# Create the User Pokemons table
+class CreateUserPokemons < ActiveRecord::Migration
   def change
     create_table :user_pokemons do |t|
       t.integer :user_id
