@@ -6,5 +6,5 @@ end
 
 use Rack::MethodOverride
 use UsersController
-use PokedexController
+use PokemonsController
 run ApplicationController
