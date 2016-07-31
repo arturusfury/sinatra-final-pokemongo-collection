@@ -28,3 +28,9 @@ images for now.  If we ever deployed this full time we would use our own images
 Since we need to setup a relation between these two with a collection table.  It
 will contain the user (trainer) id, a pokemon id which relates to the national
 pokedex id and the CP or combat power of that pokemon.
+
+## Images can be grabbed from
+
+http://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png
+
+Change the number at the end to the national pokedex number
