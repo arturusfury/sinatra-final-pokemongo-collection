@@ -8,7 +8,7 @@
               <% @pokemons.each do |pokemon| %>
               <div class="col-md-3 col-sm-4 col-xs-6">
                 <figure class="figure">
-                  <a href="/pokemons/<%=pokemon.id%>"><img src="<%=pokemon.image_url%>" class="img-responsive"></a>
+                  <a href="/pokedex/<%=pokemon.id%>"><img src="<%=pokemon.image_url%>" class="img-responsive"></a>
                   <figcaption class="figure-caption"><%=pokemon.name%></figcaption>
                 </figure>
               </div>
