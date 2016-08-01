@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'httparty'
+gem 'poke-api'
 
 group :test do
   gem 'rspec'
