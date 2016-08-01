@@ -2,12 +2,22 @@
     <div class="box col-lg-offset-2 col-lg-8">
         <div class="col-lg-12">
             <hr>
-            <h2 class="intro-text text-center">Beautiful boxes
-                <strong>to showcase your content</strong>
-            </h2>
+            <h2 class="intro-text text-center"> <strong><%=@pokemon.name%></strong></h2>
             <hr>
-            <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <div class="row">
+              <div class="col-sm-4">
+                <img src="<%=@pokemon.image_url%>" class="img-responsive">
+              </div>
+              <div class="col-sm-8">
+                <p>ID: <%=@pokemon.id%></p>
+                <p>Types:</p>
+                <ul>
+                  <% @types.each do |type| %>
+                    <li><%= type %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
         </div> <!-- end col-lg-12 -->
     </div> <!-- end .box -->
 </div> <!-- end .row -->
