@@ -1,3 +1,7 @@
+# This seed file takes a little bit of time because it pulls information off of
+# the PokeAPI database, so parsing out 151 pokemon by API and assigning their
+# values isn't always the fastest way. This takes a little bit of time to seed,
+# but it saves a lot of extra API calls later in the code that we don't need
 pokedex_num = 1
 
 until pokedex_num > 151 do
