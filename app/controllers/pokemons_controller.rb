@@ -1,10 +1,11 @@
+# Pokemons Controller
 class PokemonsController < ApplicationController
-  get '/pokemons' do
+  get '/pokedex' do
     @pokemons = Pokemon.all
     erb :'pokemons/index'
   end
 
-  get '/pokemons/:id' do
+  get '/pokedex/:id' do
     @pokemon = Pokemon.find(params[:id])
 
     poke_loader = Poke::API::Loader.new('pokemon')
