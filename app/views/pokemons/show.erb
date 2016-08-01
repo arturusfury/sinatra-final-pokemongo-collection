@@ -5,11 +5,14 @@
             <h2 class="intro-text text-center"> <strong><%=@pokemon.name%></strong></h2>
             <hr>
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-offset-1 col-sm-4">
                 <img src="<%=@pokemon.image_url%>" class="img-responsive">
               </div>
-              <div class="col-sm-8">
+              <div class="col-sm-offset-2 col-sm-4">
                 <p>ID: <%=@pokemon.id%></p>
+                <p>Species: <%=@species%></p>
+                <p>Height: <%=@height%></p>
+                <p>Weight: <%=@weight%></p>
                 <p>Types:</p>
                 <ul>
                   <% @types.each do |type| %>
@@ -17,6 +20,11 @@
                   <% end %>
                 </ul>
               </div>
+            </div>
+            <div class="row">
+              <br />
+              <br />
+              <p><%=@description%></p>
             </div>
         </div> <!-- end col-lg-12 -->
     </div> <!-- end .box -->
