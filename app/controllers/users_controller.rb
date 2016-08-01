@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   get '/collection' do
+    @user = User.find(session[:user_id])
+    @pokemons = @user.pokemons
     erb :'users/show'
   end
 
