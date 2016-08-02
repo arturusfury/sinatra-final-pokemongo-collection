@@ -9,14 +9,18 @@ class UsersController < ApplicationController
   end
 
   get '/collection' do
-    @user = User.find(session[:user_id])
-    @pokemons = @user.pokemons
-    erb :'users/show'
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      @pokemons = @user.pokemons
+      erb :'users/show'
+    else
+      redirect to '/login'
+    end
   end
 
   post '/login' do
-    user = User.find_by(username: params[:inputUsername])
-    if user && user.authenticate(params[:inputPassword])
+    user = User.find_by(username: params[:loginUsername])
+    if user && user.authenticate(params[:loginPassword])
       session[:user_id] = user.id
       redirect to '/collection'
     else
