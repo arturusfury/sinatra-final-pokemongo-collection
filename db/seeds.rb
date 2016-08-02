@@ -24,15 +24,3 @@ until pokedex_num > 151
 
   pokedex_num += 1
 end
-
-User.create(username: 'brian', password: 'password', email: 'home@email.com')
-User.create(username: 'kim', password: 'password', email: 'home@email.com')
-User.create(username: 'sam', password: 'password', email: 'home@email.com')
-
-Pokemon.create(user_id: 1, pokedex_id: 1, cp: 259)
-Pokemon.create(user_id: 1, pokedex_id: 123, cp: 343)
-Pokemon.create(user_id: 1, pokedex_id: 48, cp: 589)
-Pokemon.create(user_id: 1, pokedex_id: 56, cp: 10)
-Pokemon.create(user_id: 1, pokedex_id: 17, cp: 1239)
-Pokemon.create(user_id: 1, pokedex_id: 149, cp: 2345)
-Pokemon.create(user_id: 1, pokedex_id: 111, cp: 15)
