@@ -49,9 +49,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/pokedex">Pokedex</a></li>
                 <% if logged_in? %>
+                <li><a href="/pokedex">Pokedex</a></li>
                 <li><a href="/collection">Your <strong>Collection</strong></a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% else %>

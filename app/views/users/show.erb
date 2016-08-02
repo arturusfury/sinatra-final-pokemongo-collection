@@ -9,10 +9,32 @@
               <div class="col-md-3 col-sm-4 col-xs-6">
                 <figure class="figure">
                   <a href="/pokedex/<%=p.pokedex.id%>"><img src="<%=p.pokedex.image_url%>" class="img-responsive"></a>
-                  <figcaption class="figure-caption"><%=p.pokedex.name%> - <%=p.cp%></figcaption>
+                  <figcaption class="figure-caption"><%=p.pokedex.name%> - CP: <strong><%=p.cp%></strong></figcaption>
                 </figure>
               </div>
               <%end%>
+            </div>
+        </div> <!-- end col-lg-12 -->
+    </div> <!-- end .box -->
+</div> <!-- end .row -->
+
+<div class="row">
+    <div class="box col-lg-offset-1 col-lg-10">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">Add <strong>Pokemon</strong></h2>
+            <hr>
+            <div class="row">
+              <div class="col-sm-8">
+                <select class="form-control">
+                  <% Pokemon.all.each do |pokemon| %>
+                    <option value="<%=pokemon.id%>"><%=pokemon.pokedex.name%></option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="cp" placeholder="Combat Power" />
+              </div>
             </div>
         </div> <!-- end col-lg-12 -->
     </div> <!-- end .box -->
