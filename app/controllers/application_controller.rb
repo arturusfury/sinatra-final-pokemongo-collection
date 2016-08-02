@@ -1,7 +1,10 @@
 require './config/environment'
+require 'sinatra/flash'
 
 # Application Controller Class
 class ApplicationController < Sinatra::Base
+  register Sinatra::Flash
+  
   configure do
     enable :sessions
     set :session_secret, 'blindspot'

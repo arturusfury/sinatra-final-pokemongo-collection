@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'httparty'
 gem 'poke-api'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

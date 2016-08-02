@@ -21,6 +21,13 @@
     </div> <!-- end .box -->
 </div> <!-- end .row -->
 
+<% if flash(:four)[:error] %>
+  <div class="alert alert-danger col-lg-offset-1 col-lg-10">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> <%= flash(:four)[:error] + "." %>
+  </div>
+<% end %>
+
 <div class="row">
     <div class="box col-lg-offset-1 col-lg-10">
         <div class="col-lg-12">
@@ -37,7 +44,7 @@
                   </select>
                 </div>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" name="cp" id="cp" placeholder="Combat Power" required/>
+                  <input type="text" class="form-control" name="add_cp" id="add_cp" placeholder="Combat Power" required/>
                 </div>
                 <div class="col-sm-3">
                   <button class="btn btn-lg btn-secondary btn-sm btn-block" name="submit" value="submit" type="submit">Add</button>
@@ -47,6 +54,13 @@
         </div> <!-- end col-lg-12 -->
     </div> <!-- end .box -->
 </div> <!-- end .row -->
+
+<% if flash(:five)[:error] %>
+  <div class="alert alert-danger col-lg-offset-1 col-lg-10">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> <%= flash(:five)[:error] + "." %>
+  </div>
+<% end %>
 
 <% if !@pokemons.empty? %>
 <div class="row">
@@ -66,7 +80,7 @@
                   </select>
                 </div>
                 <div class="col-sm-3">
-                  <input type="text" class="form-control" name="cp" id="cp" placeholder="New Combat Power" required/>
+                  <input type="text" class="form-control" name="modify_cp" id="modify_cp" placeholder="New Combat Power" required/>
                 </div>
                 <div class="col-sm-3">
                   <button class="btn btn-lg btn-secondary btn-sm btn-block" name="submit" value="submit" type="submit">Modify</button>

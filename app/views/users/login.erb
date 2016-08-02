@@ -1,3 +1,10 @@
+<% if flash(:three)[:error] %>
+  <div class="alert alert-warning col-lg-offset-2 col-lg-8">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> <%= flash(:three)[:error] + "." %>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="box col-lg-offset-2 col-lg-8">
     <div class="col-lg-12">
@@ -8,6 +15,13 @@
     </div> <!-- end col-lg-12 -->
   </div> <!-- end .box -->
 </div> <!-- end .row -->
+
+<% if flash(:one)[:error] %>
+  <div class="alert alert-danger col-lg-offset-2 col-lg-8">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> <%= flash(:one)[:error] + "." %>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="box col-lg-offset-2 col-lg-8">
@@ -31,6 +45,13 @@
     </div> <!-- end col-lg-12 -->
   </div> <!-- end .box -->
 </div> <!-- end .row -->
+
+<% if flash(:two)[:error] %>
+  <div class="alert alert-danger col-lg-offset-2 col-lg-8">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> <%= flash(:two)[:error] + "." %>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="box col-lg-offset-2 col-lg-8">
