@@ -10,27 +10,19 @@ make sure we have the ability to expand our database (aka Pokedex)
 To use this app you need to clone down the repository and then run `bundle
 install` to ensure you have all the proper gems installed and ready to use.
 Once complete you will need to run `rake db:migrate` to setup the database
-correctly and then you should be able to type `shotgun` to launch the app on
-the default port of 9393.
+and then you run `rake db:seed` to ensure you fill in the pokedex database
+with all the right information.  After that is complete you should be able to
+type `shotgun` to launch the app on the default port of 9393.  
 
-## Mockups & Database Information
+## Submitting a Pull Request to Suggest an Improvement
 
-We will need multiple tables in our database to hold the information for all of
-our users and the different pokemon.
+If you see an opportunity for improvement and can make the change yourself go
+ahead and use a typical git workflow to make it happen:
 
-A User has a username, password, email and will have many pokemon in their
-collection.
+* Fork this curriculum repository
+* Make the change on your fork, with descriptive commits in the standard format
+* Open a Pull Request against this repo
 
-A Pokemon has a national pokedex id, regional pokedex id, a name and a sprite
-or image of said Pokemon.  We will link to an external source to get those
-images for now.  If we ever deployed this full time we would use our own images
+## License
 
-Since we need to setup a relation between these two with a collection table.  It
-will contain the user (trainer) id, a pokemon id which relates to the national
-pokedex id and the CP or combat power of that pokemon.
-
-## Images can be grabbed from
-
-http://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png
-
-Change the number at the end to the national pokedex number
+The is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
