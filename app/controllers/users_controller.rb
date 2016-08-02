@@ -35,6 +35,36 @@ class UsersController < ApplicationController
     end
   end
 
+  post '/add' do
+    user = User.find(session[:user_id])
+    if user
+      pokemon = Pokemon.new(user_id: user.id, pokedex_id: params[:pokedex_num], cp: params[:cp])
+      pokemon.save
+      redirect to '/collection'
+    else
+      redirect to '/login'
+    end
+  end
+
+  patch '/modify' do
+    if params[:cp] != ''
+      pokemon = Pokemon.find(params[:modify_id])
+      pokemon.cp = params[:cp]
+      pokemon.save
+    end
+
+    redirect to '/collection'
+  end
+
+  delete '/release' do
+    if params[:id] != ''
+      pokemon = Pokemon.find(params[:delete_id])
+      pokemon.delete
+    end
+
+    redirect to '/collection'
+  end
+
   get '/logout' do
     if logged_in?
       session.destroy

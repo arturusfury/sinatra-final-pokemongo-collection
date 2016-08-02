@@ -4,7 +4,10 @@
             <hr>
             <h2 class="intro-text text-center">Current <strong>Collection</strong></h2>
             <hr>
-            <div class="row">
+            <div class="row text-center">
+              <% if @pokemons.empty? %>
+                <p>Your collection is empty</p>
+              <% end %>
               <% @pokemons.each do |p| %>
               <div class="col-md-3 col-sm-4 col-xs-6">
                 <figure class="figure">
@@ -25,17 +28,80 @@
             <h2 class="intro-text text-center">Add <strong>Pokemon</strong></h2>
             <hr>
             <div class="row">
-              <div class="col-sm-8">
-                <select class="form-control">
-                  <% Pokemon.all.each do |pokemon| %>
-                    <option value="<%=pokemon.id%>"><%=pokemon.pokedex.name%></option>
-                  <% end %>
-                </select>
-              </div>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="cp" placeholder="Combat Power" />
-              </div>
+              <form class="form-signin" method="post" action="/add">
+                <div class="col-sm-6">
+                  <select class="form-control" name="pokedex_num">
+                    <% Pokedex.all.each do |pokemon| %>
+                      <option value="<%=pokemon.id%>"><%=pokemon.name%></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" name="cp" id="cp" placeholder="Combat Power" required/>
+                </div>
+                <div class="col-sm-3">
+                  <button class="btn btn-lg btn-secondary btn-sm btn-block" name="submit" value="submit" type="submit">Add</button>
+                </div>
+              </form>
             </div>
         </div> <!-- end col-lg-12 -->
     </div> <!-- end .box -->
 </div> <!-- end .row -->
+
+<% if !@pokemons.empty? %>
+<div class="row">
+    <div class="box col-lg-offset-1 col-lg-10">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">Modify <strong>Pokemon</strong></h2>
+            <hr>
+            <div class="row">
+              <form class="form-signin" method="post" action="/modify">
+                <input id="hidden" type="hidden" name="_method" value="PATCH">
+                <div class="col-sm-6">
+                  <select class="form-control" name="modify_id">
+                    <% @pokemons.all.each do |pokemon| %>
+                      <option value="<%=pokemon.id%>"><%=pokemon.pokedex.name%> - CP <%=pokemon.cp%></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" name="cp" id="cp" placeholder="New Combat Power" required/>
+                </div>
+                <div class="col-sm-3">
+                  <button class="btn btn-lg btn-secondary btn-sm btn-block" name="submit" value="submit" type="submit">Modify</button>
+                </div>
+              </form>
+            </div>
+        </div> <!-- end col-lg-12 -->
+    </div> <!-- end .box -->
+</div> <!-- end .row -->
+<% end %>
+
+
+<% if !@pokemons.empty? %>
+<div class="row">
+    <div class="box col-lg-offset-1 col-lg-10">
+        <div class="col-lg-12">
+            <hr>
+            <h2 class="intro-text text-center">Release <strong>Pokemon</strong></h2>
+            <hr>
+            <div class="row">
+              <form class="form-signin" method="post" action="/release">
+                <input id="hidden" type="hidden" name="_method" value="DELETE">
+                <div class="col-sm-9">
+                  <select class="form-control" name="delete_id">
+                    <% @pokemons.all.each do |pokemon| %>
+                      <option value="<%=pokemon.id%>"><%=pokemon.pokedex.name%> - CP <%=pokemon.cp%></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <button class="btn btn-lg btn-secondary btn-sm btn-block" name="submit" value="submit" type="submit">Release</button>
+                </div>
+              </form>
+            </div>
+        </div> <!-- end col-lg-12 -->
+    </div> <!-- end .box -->
+</div> <!-- end .row -->
+<% end %>
