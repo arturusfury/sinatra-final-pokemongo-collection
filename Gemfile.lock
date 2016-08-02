@@ -49,6 +49,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.18.4)
     pkg-config (1.1.7)
     poke-api (0.0.1)
       httpclient
@@ -123,6 +124,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   httparty
+  pg
   poke-api
   pry
   rack-test
