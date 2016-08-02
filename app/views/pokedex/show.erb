@@ -10,12 +10,12 @@
         </div>
         <div class="col-sm-offset-1 col-sm-4">
           <p>ID: <%=@pokemon.id%></p>
-          <p>Species: <%=@species%></p>
-          <p>Height: <%=@height%> inches</p>
-          <p>Weight: <%=@weight%> lbs</p>
+          <p>Species: <%=@pokemon.species%></p>
+          <p>Height: <%=@pokemon.height%> inches</p>
+          <p>Weight: <%=@pokemon.weight%> lbs</p>
           <p>Types:</p>
           <ul>
-            <% @types.each do |type| %>
+            <% @pokemon.types.split(',').each do |type| %>
               <li><%= type %></li>
             <% end %>
           </ul>
@@ -24,7 +24,7 @@
       <div class="row text-center">
         <br />
         <br />
-        <p><%=@description%></p>
+        <p><%=@pokemon.description%></p>
       </div>
     </div> <!-- end col-lg-12 -->
   </div> <!-- end .box -->
