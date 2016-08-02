@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801220003) do
+ActiveRecord::Schema.define(version: 20160802111616) do
 
   create_table "pokedexes", force: :cascade do |t|
     t.string  "region"
     t.integer "regional_id"
     t.string  "name"
     t.string  "image_url"
+    t.string  "height"
+    t.string  "weight"
+    t.string  "species"
+    t.string  "description"
+    t.string  "types"
   end
 
   create_table "pokemons", force: :cascade do |t|
