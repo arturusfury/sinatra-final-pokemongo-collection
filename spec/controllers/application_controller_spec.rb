@@ -14,8 +14,8 @@ describe ApplicationController do
     it 'will redirect to the users collection if already logged in' do
       User.create(username: 'skittles123', email: 'skittles@aol.com', password: 'rainbows')
       params = {
-        inputUsername: 'skittles123',
-        inputPassword: 'rainbows'
+        loginUsername: 'skittles123',
+        loginPassword: 'rainbows'
       }
       post '/login', params
       expect(last_response.status).to eq(302)

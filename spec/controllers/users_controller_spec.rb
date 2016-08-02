@@ -56,7 +56,7 @@ describe UsersController do
       }
       post '/new', params
       session = {}
-      session[:id] = user.id
+      session[:user_id] = user.id
       get '/login'
       follow_redirect!
       expect(last_response.status).to eq(200)
@@ -66,8 +66,8 @@ describe UsersController do
     it 'will load the users collection after logging in' do
       User.create(username: 'skittles123', email: 'skittles@aol.com', password: 'rainbows')
       params = {
-        inputUsername: 'skittles123',
-        inputPassword: 'rainbows'
+        loginUsername: 'skittles123',
+        loginPassword: 'rainbows'
       }
       post '/login', params
       expect(last_response.status).to eq(302)
@@ -81,12 +81,12 @@ describe UsersController do
     it 'lets a user logout' do
       User.create(username: 'skittles123', email: 'skittles@aol.com', password: 'rainbows')
       params = {
-        inputUsername: 'skittles123',
-        inputPassword: 'rainbows'
+        loginUsername: 'skittles123',
+        loginPassword: 'rainbows'
       }
       post '/login', params
       get '/logout'
-      expect(last_response.location).to include("/login")
+      expect(last_response.location).to include('/login')
     end
   end
 end
