@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   get '/collection' do
     if session[:user_id]
-      @user = User.find(session[:user_id])
+      @user = current_user
       @pokemons = @user.pokemons
       erb :'users/show'
     else
@@ -44,22 +44,27 @@ class UsersController < ApplicationController
 
   # Route for adding a Pokemon to a user's collection
   post '/add' do
-    user = User.find(session[:user_id])
-    if params[:add_cp] != ''
-      pokemon = Pokemon.new(user_id: user.id, pokedex_id: params[:pokedex_num], cp: params[:add_cp])
-      pokemon.save
-      redirect to '/collection'
+    user = current_user
+    add_cp = params[:add_cp]
+    if add_cp.to_i == 0 || add_cp.to_i > 9999
+      flash(:four)[:error] = 'You must enter a Combat Power that is between 1 and 9999'
+    elsif add_cp != ''
+      user.pokemons.create(pokedex_id: params[:pokedex_num], cp: add_cp)
     else
       flash(:four)[:error] = 'You must enter a value into the Combat Power field to add a pokemon to your collection'
-      redirect to '/login'
     end
+
+    redirect to '/collection'
   end
 
   # Route for editing a pokemon in the user's collection
   patch '/modify' do
-    if params[:modify_cp] != ''
+    modify_cp = params[:modify_cp]
+    if modify_cp.to_i == 0 || modify_cp.to_i > 9999
+      flash(:five)[:error] = 'You must enter a Combat Power that is between 1 and 9999'
+    elsif modify_cp != ''
       pokemon = Pokemon.find(params[:modify_id])
-      pokemon.cp = params[:modify_cp]
+      pokemon.cp = modify_cp
       pokemon.save
     else
       flash(:five)[:error] = 'You must enter a value into the Combat Power field to edit an existing pokemon'
